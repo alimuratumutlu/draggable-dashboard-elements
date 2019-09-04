@@ -54,7 +54,7 @@ class App extends React.Component {
       }
     ],
     oldWidgets: [],
-    edit: true
+    edit: true,
   };
 
   handleEditStart = () => {
@@ -81,8 +81,6 @@ class App extends React.Component {
 
     // TODO : Navbarda çalışma alanım yanında kaydedildi butonu çıkıp kaybolacak
 
-    // TODO : Settings alanında genişlikler listelenecek
-
     this.setState(state => {
       return {
         widgets: layouts.map(layout => {
@@ -100,12 +98,10 @@ class App extends React.Component {
     });
   };
 
-
   render() {
 
     const { widgets, edit } = this.state;
 
-    
     const styles = {
       locationInfo : {
         fontSize: 10
@@ -129,7 +125,7 @@ class App extends React.Component {
 
     return (
       <React.Fragment>
-        <Header />
+        <Header count={this.props.notCount} />
         <GridLayout
           layouts={layouts}
           onLayoutChange={this.handleLayoutChange}
@@ -150,7 +146,7 @@ class App extends React.Component {
               </Settings>
           </div>
 
-          <div key={this.state.widgets[2].id} data-grid={this.state.widgets[2].layout} style={{overflow: "auto"}} className="scrollbar-thin" draggableHandle=".dragMe">
+          <div key={this.state.widgets[2].id} data-grid={this.state.widgets[2].layout} style={{overflow: "auto"}} className="scrollbar-thin" >
               <Form />
           </div>
 
@@ -160,5 +156,7 @@ class App extends React.Component {
     );
   }
 }
+
+
 
 export default App;

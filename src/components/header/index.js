@@ -1,12 +1,42 @@
 import React, { Component } from "react";
+import axios from "axios";
+
+import Notification from "./Notification";
 import Logo from "./logo";
 
-import GreetingBar from "./GreetingBar"
+import * as data from "../../data.json";
+
+import { connect } from "react-redux";
+
+import * as ACTIONS from "../../store/actions/actions";
 
 import "./index.css";
 
-export default class index extends Component {
+class index extends Component {
+  state = {
+    notifications: []
+  };
+
+  componentDidMount = async () => {
+    const {data} = await axios.get("./data.json");
+    this.setState({ notifications: data.notifications });
+    this.setState({ notCount: data.notifications.length });
+
+  };
+
   render() {
+    const notifications = this.state.notifications.map(notification => (
+      <Notification
+        who={notification.who}
+        did={notification.did}
+        what={notification.what}
+        where={notification.where}
+        when={notification.when}
+      />
+    ));
+
+    console.log(this.state.notifications)
+
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-custom">
         <Logo />
@@ -39,9 +69,59 @@ export default class index extends Component {
               </a>
             </li>
           </ul>
-          <GreetingBar/>
+          <li className="dropdown notification-list">
+            <a
+              className="nav-link dropdown-toggle arrow-none"
+              data-toggle="dropdown"
+              href="#"
+              role="button"
+              aria-haspopup="false"
+              aria-expanded="false"
+            >
+              <i className="fi-bell noti-icon" />
+              <span className="badge badge-danger badge-pill noti-icon-badge">
+                {this.props.notCount}
+              </span>
+            </a>
+            <div className="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
+              <div className="dropdown-item noti-title">
+                <h5 className="m-0">
+                  <span className="float-right">
+                    <a
+                      href="#"
+                      onClick={() => this.props.action_creator1()}
+                      className="text-dark"
+                    >
+                      <small>Tümünü Okundu Yap</small>
+                    </a>
+                  </span>
+                </h5>
+              </div>
+
+              <div  style={{ minHeight: 230 }}>
+                {notifications}
+              </div>
+            </div>
+          </li>
         </div>
       </nav>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    notCount: state.notification_reducer.notCount
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    action_creator1: () => dispatch(ACTIONS.okunduyap())
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(index);

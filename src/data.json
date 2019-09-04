@@ -1,0 +1,20 @@
+{
+    "notifications": [
+        {
+            "id": 1,
+            "who": "Murat",
+            "where" : "muratumutlu.com",
+            "when" : "06/05/2019 14:16:52",
+            "what": "post",
+            "did": "commented on"
+        },
+        {
+            "id": 2,
+            "who": "Niyazi",
+            "where" : "Niyazi Erdem Umutlu",
+            "when" : "26/05/2019 18:24:52",
+            "what": "announcment",
+            "did": "liked"
+        }
+    ]
+}

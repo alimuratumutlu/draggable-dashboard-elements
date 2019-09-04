@@ -16,22 +16,22 @@ export default class index extends Component {
   };
 
   handleClick = element => {
-    if (element == "id") {
+    if (element === "id") {
       this.state.idColumn = "checked"
         ? this.setState({ idColumn: "unchecked" })
         : this.setState({ idColumn: "checked" });
       console.log("id Tıklandı ", this.state.idColumn);
-    } else if (element == "kontrat") {
+    } else if (element === "kontrat") {
       this.state.kontratColumn = "checked"
         ? this.setState({ kontratColumn: "unchecked" })
         : this.setState({ kontratColumn: "checked" });
       console.log("kontrat Tıklandı");
-    } else if (element == "teklif") {
+    } else if (element === "teklif") {
       this.state.teklifColumn = "checked"
         ? this.setState({ teklifColumn: "unchecked" })
         : this.setState({ teklifColumn: "checked" });
       console.log("teklif Tıklandı");
-    } else if (element == "data") {
+    } else if (element === "data") {
       this.state.dataColumn = "checked"
         ? this.setState({ dataColumn: "unchecked" })
         : this.setState({ dataColumn: "checked" });
