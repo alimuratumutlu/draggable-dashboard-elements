@@ -1,0 +1,47 @@
+{
+  "name": "reactjs-epias-case",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-solid-svg-icons": "^5.10.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@o2xp/react-datatable": "^1.1.9",
+    "firebase": "^6.5.0",
+    "re-resizable": "^6.0.0",
+    "react": "^16.9.0",
+    "react-bootstrap-table": "^4.3.1",
+    "react-component-resizable": "^2.0.1",
+    "react-dom": "^16.9.0",
+    "react-grid-layout": "^0.16.6",
+    "react-scripts": "3.1.1",
+    "react-split": "^2.0.7",
+    "react-svg": "^10.0.20"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

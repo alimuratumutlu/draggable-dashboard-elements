@@ -1,0 +1,45 @@
+.tableFixHead {
+    height: 100px;
+}
+
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px 16px;
+}
+
+th {
+    background: #fff;
+}
+
+.bar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 24px;
+    line-height: 30px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.item-right {
+    float: right;
+    margin-left:5px;
+}
+
+.item-left {
+    float: left;
+}
+
+.hidden {
+    display:none;
+}
