@@ -1,8 +1,9 @@
 import React from "react";
 import GridLayout from "react-grid-layout";
 
+import {Bar, Pie} from 'react-roughviz';
+
 import Table from "./components/table";
-import Form from "./components/form";
 import Settings from "./components/layout/settings";
 
 import Header from "./components/header";
@@ -45,8 +46,8 @@ class App extends React.Component {
         layout: {
           x: 0,
           y: 7,
-          w: 9,
-          h: 8,
+          w: 3,
+          h: 11,
           minW: 3,
           maxW: 12
         },
@@ -146,8 +147,17 @@ class App extends React.Component {
               </Settings>
           </div>
 
-          <div key={this.state.widgets[2].id} data-grid={this.state.widgets[2].layout} style={{overflow: "auto"}} className="scrollbar-thin" >
-              <Form />
+          <div key={this.state.widgets[2].id} data-grid={this.state.widgets[2].layout} style={{overflow: "hidden"}} className="scrollbar-thin" >
+     
+          <Pie
+        data={{
+          labels: ['North', 'South', 'East', 'West'],
+          values: [10, 5, 8, 3],
+        }}
+        colors={['red', 'orange', 'blue', 'skyblue']}
+        roughness={3}
+        strokeWidth={3}
+      />
           </div>
 
         </GridLayout>
