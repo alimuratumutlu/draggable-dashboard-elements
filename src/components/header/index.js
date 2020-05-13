@@ -14,28 +14,29 @@ import "./index.css";
 
 class index extends Component {
   state = {
-    notifications: []
+    notifications: [],
   };
 
   componentDidMount = async () => {
-    const {data} = await axios.get("./data.json");
+    const { data } = await axios.get("./data.json");
     this.setState({ notifications: data.notifications });
     this.setState({ notCount: data.notifications.length });
-
   };
 
   render() {
-    const notifications = this.state.notifications.map(notification => (
-      <Notification
-        who={notification.who}
-        did={notification.did}
-        what={notification.what}
-        where={notification.where}
-        when={notification.when}
-      />
-    ));
+    const notifications =
+      this.state.notification &&
+      this.state.notifications.map((notification) => (
+        <Notification
+          who={notification.who}
+          did={notification.did}
+          what={notification.what}
+          where={notification.where}
+          when={notification.when}
+        />
+      ));
 
-    console.log(this.state.notifications)
+    console.log(this.state.notifications);
 
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-custom">
@@ -98,9 +99,7 @@ class index extends Component {
                 </h5>
               </div>
 
-              <div  style={{ minHeight: 230 }}>
-                {notifications}
-              </div>
+              <div style={{ minHeight: 230 }}>{notifications}</div>
             </div>
           </li>
         </div>
@@ -111,17 +110,14 @@ class index extends Component {
 
 function mapStateToProps(state) {
   return {
-    notCount: state.notification_reducer.notCount
+    notCount: state.notification_reducer.notCount,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    action_creator1: () => dispatch(ACTIONS.okunduyap())
+    action_creator1: () => dispatch(ACTIONS.okunduyap()),
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(index);
+export default connect(mapStateToProps, mapDispatchToProps)(index);
