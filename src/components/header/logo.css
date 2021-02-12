@@ -1,6 +1,5 @@
 .logo {
-    max-height:50px;
-    max-width:500px;
-    height:auto;
-    width:auto;
+  color: rgb(216, 100, 172) !important;
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
 }
