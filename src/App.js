@@ -76,9 +76,9 @@ export default function App({ props }) {
       <GridLayout
         layouts={layouts}
         onLayoutChange={handleLayoutChange}
-        isDraggable={edit}
-        isResizable={edit}
-        autoSize={edit}
+        isDraggable={true}
+        isResizable={true}
+        autoSize={true}
         width={width}
         cols={12}
         rowHeight={30}
