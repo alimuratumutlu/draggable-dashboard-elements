@@ -5,7 +5,6 @@ import GridLayout from "react-grid-layout";
 import { Pie } from "react-roughviz";
 
 import Table from "./components/table";
-import Settings from "./components/layout/settings";
 
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -41,31 +40,10 @@ export default function App({ props }) {
       },
     },
   ]);
-  const [oldWidgets, setOldWidgets] = useState([]);
-  const [edit, setEdit] = useState(true);
 
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
-
-  const styles = {
-    locationInfo: {
-      fontSize: 10,
-    },
-  };
-
-  let location = widgets.map((widget) => (
-    <div
-      key={widget.id}
-      className="alert alert-primary"
-      role="alert"
-      style={styles.locationInfo}
-    >
-      <strong>Widget {widget.id} : </strong>X Konumu {widget.layout.x} / Y
-      Konumu {widget.layout.y} / Yüksekliği {widget.layout.h} / Genişliği{" "}
-      {widget.layout.w}
-    </div>
-  ));
 
   const layouts = {
     md: widgets.map((widget) => {
@@ -74,20 +52,6 @@ export default function App({ props }) {
         ...widget.layout,
       };
     }),
-  };
-
-  const handleEditStart = () => {
-    setEdit(true);
-    setOldWidgets(widgets);
-  };
-
-  const handleEditDone = () => {
-    setEdit(false);
-  };
-
-  const handleEditCancel = () => {
-    setEdit(false);
-    setWidgets(oldWidgets);
   };
 
   const handleLayoutChange = (layouts) => {
