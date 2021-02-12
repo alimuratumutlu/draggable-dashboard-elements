@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { FaSave } from "react-icons/fa";
 import axios from "axios";
 
-import Logo from "./Logo";
+import Logo from "./logo";
 
 import "./index.css";
 
